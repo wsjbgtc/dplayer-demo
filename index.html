@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="referrer" content="never">
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+          id="viewport" name="viewport">
+    <link rel="stylesheet" href="./DPlayer.min.css">
+</head>
+<body marginwidth="0" marginheight="0"
+      style="position:absolute;width:100%;top:0;bottom:0;background:#000">
+<div id="player1" style="position:absolute;top:0;left:0;right: 0;bottom:40px;"></div>
+<div id="controllBar" style="position:absolute;left:0;right: 0;bottom:0;height:40px;background: white;">
+    <input type="text" style="width: 90%;height: 34px;" placeholder="请输入播放地址" id="movieUrl" onfocus="javascript:this.select();">
+    <input type="button" value="play" style="width:8%;height: 34px;" onclick="javascript:switchMovie();">
+</div>
+<script src="./dash.all.min.js"></script>
+<script src="./flv.min.js"></script>
+<script src="./webtorrent.min.js"></script>
+<script type="text/javascript" src="./hls.min.js"></script>
+<script type="text/javascript" src="./DPlayer.min.js" charset="utf-8"></script>
+<script>
+var dp = new DPlayer({
+    element: document.getElementById('player1'),
+    //video: {
+    //    url: "https://acfun.iqiyi-kuyun.com/20181123/MXcJNDqu/index.m3u8"
+        //url: "http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8"
+    //}
+});
+//dp.play();
+function switchMovie() {
+    dp.switchVideo({
+        url: document.getElementById("movieUrl").value
+    });
+    dp.play();
+}
+</script>
+
+</body>
+</html>
